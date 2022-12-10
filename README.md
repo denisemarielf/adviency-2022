@@ -19,3 +19,9 @@ Día 2: Nuestra app se ve muy poco navideña, demosle unos colores más lindos, 
 Día 3: Estámos generosos, vamos a agregar un formulario con un input para escribir nuestro regalo y un botón para agregarlo a nuestra lista, todavía no los podemos borrar, pero... es navidad! Por que querríamos borrar regalos?
 
 !["Imagen dia 3"](./assets/images/dia-3.png)
+
+## Dia 4
+
+Día 4: Papa noel no estuvo muy contento con la demanda de regalos, vamos a tener que agregar un botón de eliminar a cada elemento para poder borrarlos individualmente.
+
+!["Imagen dia 4"](./assets/images/dia-4.gif)
