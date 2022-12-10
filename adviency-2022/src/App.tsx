@@ -44,11 +44,14 @@ function App() {
   const [gifts, dispatch] = useReducer(giftsReducer, initialState)
   
   const handleNewGift = (newGift: Gift): void => {
+    let repeated = gifts.find((element) => element.name.toLowerCase() === newGift.name.toLowerCase())
+    if (!repeated){
     dispatch({
       type: "added",
       name: newGift.name,
       id: newGift.id
     })
+  }
   }
 
   const handleDeleteGift = (id: string):void => {
