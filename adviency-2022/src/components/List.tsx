@@ -12,8 +12,8 @@ export default function List ({gifts, onDeleteGift}: Props) {
     const renderList = (): JSX.Element[] => {
         console.log(gifts)
          return gifts.map(gift => {
-            return <li className="list-item">{gift.name 
-            }<button onClick={()=>onDeleteGift(gift.id)} className="list-button"><FontAwesomeIcon icon={faXmark} /></button></li>
+            return <li className="list-item">{`${gift.quantity} ${gift.name} `}
+            <button onClick={()=>onDeleteGift(gift.id)} className="list-button"><FontAwesomeIcon icon={faXmark} /></button></li>
           }
           )
         

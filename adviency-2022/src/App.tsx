@@ -1,13 +1,9 @@
-import { useReducer } from 'react';
-import uuid from 'react-uuid';
+import { useReducer, useEffect } from 'react';
 
 import './App.css';
 import List from "./components/List"
 import Form from './components/Form';
 import { Gift } from './types';
-
-
-const initialState = [{name: "Medias", id: uuid(), quantity: 1}, {name: "Gorras", id: uuid(), quantity: 1}, {name:"Bufandas", id: uuid(), quantity: 1 } ]
 
 type GiftsReducerAction = {
   type: "added" 
@@ -19,11 +15,15 @@ type GiftsReducerAction = {
       id: string
 } | {
   type: "cleared"
+} | {
+  type: "storage"
+  elements: Gift[]
 }
 
 function giftsReducer(gifts: Gift[], action: GiftsReducerAction) {
   switch (action.type) {
     case "added":{
+      
       return [
         ...gifts,
         {
@@ -32,19 +32,39 @@ function giftsReducer(gifts: Gift[], action: GiftsReducerAction) {
           quantity: action.quantity
         }
       ]
+   
   }    
   case "deleted": {
       return gifts.filter((t) => t.id !== action.id);
   }
   case "cleared": {
+    window.localStorage.clear()
     return []
+  }
+  case "storage": {
+    return [...action.elements]
   }
 }}
 
 function App() {
 
-  const [gifts, dispatch] = useReducer(giftsReducer, initialState)
+  const [gifts, dispatch] = useReducer(giftsReducer, [])
   
+  useEffect(() => {
+    const elements = JSON.parse(localStorage.getItem('gifts') as any)
+    if (elements) {
+      dispatch({
+        type: "storage",
+        elements: elements
+      })
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('gifts', JSON.stringify(gifts))
+  }, [gifts])
+
+
   const handleNewGift = (newGift: Gift): void => {
     let repeated = gifts.find((element) => element.name.toLowerCase() === newGift.name.toLowerCase())
     if (!repeated){
@@ -54,6 +74,7 @@ function App() {
       id: newGift.id,
       quantity: newGift.quantity
     })
+    
   }
   }
 
