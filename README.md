@@ -24,4 +24,10 @@ Día 3: Estámos generosos, vamos a agregar un formulario con un input para escr
 
 Día 4: Papa noel no estuvo muy contento con la demanda de regalos, vamos a tener que agregar un botón de eliminar a cada elemento para poder borrarlos individualmente.
 
-!["Imagen dia 4"](./assets/images/dia-4.gif)
+<img src="./assets/images/dia-4.gif" width="300"> 
+
+## Dia 5
+
+Día 5: La gente está muy indecisa y agrega muchos regalos y después los debe borrar de a uno! Agreguemos un botón para eliminar todos los regalos a la vez!
+
+<img src="./assets/images/dia-5.gif" width="300"> 

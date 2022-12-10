@@ -16,6 +16,8 @@ type GiftsReducerAction = {
 } | {
       type: "deleted"
       id: string
+} | {
+  type: "cleared"
 }
 
 function giftsReducer(gifts: Gift[], action: GiftsReducerAction) {
@@ -31,6 +33,9 @@ function giftsReducer(gifts: Gift[], action: GiftsReducerAction) {
   }    
   case "deleted": {
       return gifts.filter((t) => t.id !== action.id);
+  }
+  case "cleared": {
+    return []
   }
 }}
 
@@ -53,6 +58,12 @@ function App() {
     })
   }
 
+  const handleClearAll = ():void => {
+    dispatch({
+      type: "cleared"
+    })
+  }
+
 
   return (
     <div className="App">
@@ -61,6 +72,7 @@ function App() {
         <h1 className='wishlist-title'>Lista de regalos</h1>
         <Form onNewGift={handleNewGift}/>
         <List gifts={gifts} onDeleteGift={handleDeleteGift}/>
+        <button onClick={handleClearAll} className="clear-button">Borrar todo</button>
       </div>
     </div>
   );
