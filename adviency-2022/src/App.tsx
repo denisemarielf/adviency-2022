@@ -72,6 +72,7 @@ function App() {
         <h1 className='wishlist-title'>Lista de regalos</h1>
         <Form onNewGift={handleNewGift}/>
         <List gifts={gifts} onDeleteGift={handleDeleteGift}/>
+        {gifts.length === 0 && <p className='message'>No seas grinch! Agregá algo!</p>}
         <button onClick={handleClearAll} className="clear-button">Borrar todo</button>
       </div>
     </div>
