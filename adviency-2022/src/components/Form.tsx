@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React, { useReducer } from "react"
 import { Gift } from "../types"
+import uuid from 'react-uuid';
 
 interface FormState {
     inputValues: Gift
@@ -9,28 +10,69 @@ interface FormProps {
     onNewGift: (newGift: Gift) => void
 }
 
+const INITIAL_STATE = {
+    name: "",
+    id: ""
+}
+
+type FormReducerAction = {
+    type: "change_value" 
+    payload: {
+        inputName: string,
+        inputValue: string
+    } 
+} | {
+        type: "clear"
+}
+
+
+
+function formReducer(state: FormState["inputValues"], action: FormReducerAction) {
+    switch (action.type) {
+        case 'change_value': {
+          const {inputName, inputValue} = action.payload
+          return {
+            ...state,
+            [inputName]: inputValue
+          }
+        }
+        case 'clear': {
+          return INITIAL_STATE
+        }
+      }
+}
+
 export default function Form({ onNewGift }: FormProps){ 
 
-    const [inputValues, setInputValues] = useState<FormState["inputValues"]>({
-        name: "",
-        id: 0
-    })
+    const [inputValue, dispatch] = useReducer(formReducer, INITIAL_STATE)
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        onNewGift(inputValues)
+        onNewGift({...inputValue, id: uuid()})
+        handleClear()
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValues({
-            ...inputValues,
-            [e.target.name]: e.target.value
+        const {name, value} = e.target
+        dispatch({
+            type: "change_value",
+            payload: {
+                inputName: name,
+                inputValue: value
+            }
+        })
+        
+    }
+
+    const handleClear = () => {
+        dispatch({
+            type: "clear"
         })
     }
 
     return (
         <form className="form" onSubmit={handleSubmit}>
-            <input className="form-input" onChange={handleChange} value={inputValues.name} type="text" name="name" placeholder="Agrega un nuevo regalo"></input>
+            <input className="form-input" onChange={handleChange} value={inputValue.name} type="text" name="name" placeholder="Agrega un nuevo regalo"></input>
             <button className="form-button">Agregar</button>
         </form>
     )

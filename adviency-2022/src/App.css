@@ -46,7 +46,7 @@
   flex-direction: column;
   gap: 10px;
   font-size: large;
-  padding-left: 20px;
+
 }
 
 .form {
@@ -80,4 +80,25 @@
   color: #092c1d;
   background-color: #f1bc6c;
   border: 1px solid #092c1d;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-button {
+  background-color:#0F462F;
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.list-button:hover {
+  color: #A60112;
+  border: 1px solid #A60112;
 }

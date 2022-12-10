@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
+import uuid from 'react-uuid';
 
 import './App.css';
 import List from "./components/List"
@@ -6,11 +7,50 @@ import Form from './components/Form';
 import { Gift } from './types';
 
 
+const initialState = [{name: "Medias", id: uuid()}, {name: "Gorras", id: uuid()}, {name:"Bufandas", id: uuid() } ]
+
+type GiftsReducerAction = {
+  type: "added" 
+  name: string
+  id: string
+} | {
+      type: "deleted"
+      id: string
+}
+
+function giftsReducer(gifts: Gift[], action: GiftsReducerAction) {
+  switch (action.type) {
+    case "added":{
+      return [
+        ...gifts,
+        {
+          id: action.id,
+          name: action.name
+        }
+      ]
+  }    
+  case "deleted": {
+      return gifts.filter((t) => t.id !== action.id);
+  }
+}}
+
 function App() {
 
-  const [gifts, setGifts] = useState<Gift[]>([{name: "Medias", id: 1}, {name: "Gorras", id: 2}, {name:"Bufandas", id: 3 } ])
+  const [gifts, dispatch] = useReducer(giftsReducer, initialState)
+  
   const handleNewGift = (newGift: Gift): void => {
-    setGifts(gifts => [...gifts, newGift])
+    dispatch({
+      type: "added",
+      name: newGift.name,
+      id: newGift.id
+    })
+  }
+
+  const handleDeleteGift = (id: string):void => {
+    dispatch({
+      type: "deleted",
+      id: id
+    })
   }
 
 
@@ -20,7 +60,7 @@ function App() {
         
         <h1 className='wishlist-title'>Lista de regalos</h1>
         <Form onNewGift={handleNewGift}/>
-        <List gifts={gifts}/>
+        <List gifts={gifts} onDeleteGift={handleDeleteGift}/>
       </div>
     </div>
   );
