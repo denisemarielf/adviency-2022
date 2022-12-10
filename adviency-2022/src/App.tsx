@@ -1,4 +1,4 @@
-import { useState, useReducer } from 'react';
+import { useReducer } from 'react';
 import uuid from 'react-uuid';
 
 import './App.css';
@@ -7,12 +7,13 @@ import Form from './components/Form';
 import { Gift } from './types';
 
 
-const initialState = [{name: "Medias", id: uuid()}, {name: "Gorras", id: uuid()}, {name:"Bufandas", id: uuid() } ]
+const initialState = [{name: "Medias", id: uuid(), quantity: 1}, {name: "Gorras", id: uuid(), quantity: 1}, {name:"Bufandas", id: uuid(), quantity: 1 } ]
 
 type GiftsReducerAction = {
   type: "added" 
   name: string
   id: string
+  quantity: number
 } | {
       type: "deleted"
       id: string
@@ -27,7 +28,8 @@ function giftsReducer(gifts: Gift[], action: GiftsReducerAction) {
         ...gifts,
         {
           id: action.id,
-          name: action.name
+          name: action.name,
+          quantity: action.quantity
         }
       ]
   }    
@@ -49,7 +51,8 @@ function App() {
     dispatch({
       type: "added",
       name: newGift.name,
-      id: newGift.id
+      id: newGift.id,
+      quantity: newGift.quantity
     })
   }
   }

@@ -106,3 +106,10 @@
 .message {
   align-self: center;
 }
+
+.form-input-quantity {
+  width: 50px;
+  display: grid;
+  place-items: center;
+  padding: 5px;
+}

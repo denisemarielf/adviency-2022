@@ -12,7 +12,8 @@ interface FormProps {
 
 const INITIAL_STATE = {
     name: "",
-    id: ""
+    id: "",
+    quantity: 0
 }
 
 type FormReducerAction = {
@@ -48,8 +49,11 @@ export default function Form({ onNewGift }: FormProps){
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        onNewGift({...inputValue, id: uuid()})
-        handleClear()
+        if (inputValue.name !== "") {
+            onNewGift({...inputValue, id: uuid()})
+            handleClear()
+        }
+
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,7 +62,7 @@ export default function Form({ onNewGift }: FormProps){
             type: "change_value",
             payload: {
                 inputName: name,
-                inputValue: value
+                inputValue: value,
             }
         })
         
@@ -73,6 +77,7 @@ export default function Form({ onNewGift }: FormProps){
     return (
         <form className="form" onSubmit={handleSubmit}>
             <input className="form-input" onChange={handleChange} value={inputValue.name} type="text" name="name" placeholder="Agrega un nuevo regalo"></input>
+            <input className="form-input-quantity" onChange={handleChange} value={inputValue.quantity} type="number" name="quantity" ></input>
             <button className="form-button">Agregar</button>
         </form>
     )
