@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans:wght@400;700&display=swap');
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-image: url(./amy-shamblen-x2lm26Rs2PM-unsplash.jpg);
+  background-size: cover; /* or contain depending on what you want */
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+.wishlist-container {
+  background-color: #0F462F;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 15px;
+  
+  border: 10px solid green;
+  border-image: repeating-linear-gradient(
+      45deg,
+      rgb(165, 65, 65),
+      rgb(165, 65, 65), 10px,
+      white 10px,
+      white 20px
+    )
+    10;
+}
+
+.wishlist-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 40px;
+  color: #f1bc6c;
+  align-self: center;
+  
+}
+
+.wishlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: large;
+  padding-left: 20px;
+}
+
+.form {
+  
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  
+}
+
+.form-input {
+  padding-left: 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #f1bc6c;
+  color: white;
+  font-size: large;
+}
+
+.form-button {
+  color: #f1bc6c;
+  background-color: #092c1d;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #f1bc6c;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  color: #092c1d;
+  background-color: #f1bc6c;
+  border: 1px solid #092c1d;
+}
