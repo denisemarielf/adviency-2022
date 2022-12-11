@@ -16,7 +16,9 @@
 
 .wishlist-container {
   background-color: #0F462F;
-  padding: 50px;
+  padding: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -42,7 +44,7 @@
 }
 
 .wishlist-list {
-  display: flex;
+  display: grid;
   flex-direction: column;
   gap: 10px;
   font-size: large;
@@ -64,6 +66,7 @@
   border-bottom: 1px solid #f1bc6c;
   color: white;
   font-size: large;
+  width: 40%;
 }
 
 .form-button, .clear-button  {
@@ -83,8 +86,9 @@
 }
 
 .list-item {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 15% 80% 5%;
+  align-items: center;
 }
 
 .list-button{
@@ -112,4 +116,15 @@
   display: grid;
   place-items: center;
   padding: 5px;
+}
+
+.img-container {
+  width: auto;
+}
+
+.gift-img {
+  color: #A60112;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
 }

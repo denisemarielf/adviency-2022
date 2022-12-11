@@ -13,7 +13,8 @@ interface FormProps {
 const INITIAL_STATE = {
     name: "",
     id: "",
-    quantity: 0
+    quantity: 0,
+    img: ""
 }
 
 type FormReducerAction = {
@@ -77,6 +78,7 @@ export default function Form({ onNewGift }: FormProps){
     return (
         <form className="form" onSubmit={handleSubmit}>
             <input className="form-input" onChange={handleChange} value={inputValue.name} type="text" name="name" placeholder="Agrega un nuevo regalo"></input>
+            <input className="form-input" onChange={handleChange} value={inputValue.img} type="text" name="img" placeholder="URL de imagen" />
             <input className="form-input-quantity" onChange={handleChange} value={inputValue.quantity} type="number" name="quantity" ></input>
             <button className="form-button">Agregar</button>
         </form>

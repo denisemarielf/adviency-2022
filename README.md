@@ -54,3 +54,9 @@ Cometimos un error el día anterior, la gente quiere agregar regalos repetidos p
 ## Dia 9
 
 Día 9: La gente está triste por que al cerrar la aplicación pierde todos sus regalos 😢. Usemos localStorage para guardar los regalos en el dispositivo del usuario y cargarlos cuando vuelve!
+
+## Dia 10
+
+Día 10: Las palabras dicen mucho pero las imágenes más! Agreguemos un campo donde podamos pegar un link de imágen para cada regalo y mostremoslo en la lista.
+
+<img align="center" src="./assets/images/dia-10.png" width="50%"> 
