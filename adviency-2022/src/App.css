@@ -33,6 +33,7 @@
       white 20px
     )
     10;
+    
 }
 
 .wishlist-title {
@@ -48,28 +49,61 @@
   flex-direction: column;
   gap: 10px;
   font-size: large;
-
+  width: 100%;
 }
 
 .form {
-  
+  position: absolute;
+  color: black;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 10px solid green;
+  border-image: repeating-linear-gradient(
+    45deg,
+    rgb(165, 65, 65),
+    rgb(165, 65, 65), 10px,
+    white 10px,
+    white 20px
+  )
+  10;
+  padding: 40px;
+  background-color: white;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 30vw;
+  height: fit-content;
+  min-width: 400px;
   gap: 10px;
   
 }
 
 .form-input {
-  padding-left: 10px;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #f1bc6c;
   color: white;
   font-size: large;
-  width: 40%;
+  
 }
 
-.form-button, .clear-button  {
+.form-container {
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transition: all .5s;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.form-button, .button  {
   color: #f1bc6c;
   background-color: #092c1d;
   border: none;
@@ -79,7 +113,7 @@
   cursor: pointer;
 }
 
-.form-button:hover, .clear-button:hover {
+.form-button:hover, .button:hover {
   color: #092c1d;
   background-color: #f1bc6c;
   border: 1px solid #092c1d;
@@ -87,8 +121,13 @@
 
 .list-item {
   display: grid;
-  grid-template-columns: 15% 80% 5%;
+  width: 100%;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
+  justify-items: start;
+  justify-content: center;
+  padding: 5px;
+  gap: 5%;
 }
 
 .list-button{
@@ -100,6 +139,7 @@
   cursor: pointer;
   display: grid;
   place-items: center;
+  justify-self: end;
 }
 
 .list-button:hover {
@@ -127,4 +167,35 @@
   width: 60px;
   height: 60px;
   object-fit: cover;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+label:last-of-type {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form > .list-button {
+  background-color: white;
+  color:#A60112;
+  align-self: flex-end;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button:first-of-type {
+  color: #092c1d;
+  background-color: #f1bc6c;
+  border: 2px solid #092c1d;
+  font-weight: bold;
 }

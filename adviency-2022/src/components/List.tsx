@@ -16,7 +16,7 @@ export default function List ({gifts, onDeleteGift}: Props) {
                 <div className="img-container">
                 {gift.img? <img className="gift-img" alt={`${gift.name}`} src={gift.img}></img> : <FontAwesomeIcon className="gift-img" icon={faGift} />}
                 </div>
-                {`${gift.quantity} ${gift.name} `}
+                <p>{`${gift.quantity} ${gift.name} `}</p>
                 <button onClick={()=>onDeleteGift(gift.id)} className="list-button"><FontAwesomeIcon icon={faXmark} /></button></li>
           }
           )

@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useState } from 'react';
 
 import './App.css';
 import List from "./components/List"
@@ -52,6 +52,7 @@ function giftsReducer(gifts: Gift[], action: GiftsReducerAction) {
 function App() {
 
   const [gifts, dispatch] = useReducer(giftsReducer, [])
+  const [form, setForm] = useState(false)
   
   useEffect(() => {
     const elements = JSON.parse(localStorage.getItem('gifts') as any)
@@ -99,12 +100,15 @@ function App() {
   return (
     <div className="App">
       <div className='wishlist-container'>
-        
-        <h1 className='wishlist-title'>Lista de regalos</h1>
-        <Form onNewGift={handleNewGift}/>
+      <h1 className='wishlist-title'>Lista de regalos</h1>
+        <div className='button-container'>
+        <button className="button" onClick={()=>setForm(!form)} >Nuevo regalo</button>
+        <button onClick={handleClearAll} className="button">Borrar todo</button>
+        </div>
+        {form && <Form closeForm={()=>setForm(!form)} onNewGift={handleNewGift}/>}
         <List gifts={gifts} onDeleteGift={handleDeleteGift}/>
         {gifts.length === 0 && <p className='message'>No seas grinch! Agregá algo!</p>}
-        <button onClick={handleClearAll} className="clear-button">Borrar todo</button>
+
       </div>
     </div>
   );

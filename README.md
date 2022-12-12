@@ -60,3 +60,10 @@ Día 9: La gente está triste por que al cerrar la aplicación pierde todos sus 
 Día 10: Las palabras dicen mucho pero las imágenes más! Agreguemos un campo donde podamos pegar un link de imágen para cada regalo y mostremoslo en la lista.
 
 <img align="center" src="./assets/images/dia-10.png" width="50%"> 
+
+## Dia 11
+
+Día 11: Nuestro formulario tiene muchas cosas y molesta a la vista de los usuarios, pasemoslo a un modal / drawer o lo que quieras y pongamos un botón de "Agregar regalo" que lo muestre.
+
+<img align="center" src="./assets/images/dia-11.png" width="50%"> 
+
