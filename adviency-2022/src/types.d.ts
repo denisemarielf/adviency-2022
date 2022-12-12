@@ -3,4 +3,5 @@ export interface Gift {
     id: string
     quantity: number
     img: string
+    addressee: string
   }

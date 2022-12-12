@@ -65,5 +65,11 @@ Día 10: Las palabras dicen mucho pero las imágenes más! Agreguemos un campo d
 
 Día 11: Nuestro formulario tiene muchas cosas y molesta a la vista de los usuarios, pasemoslo a un modal / drawer o lo que quieras y pongamos un botón de "Agregar regalo" que lo muestre.
 
-<img align="center" src="./assets/images/dia-11.png" width="50%"> 
+<img align="center" src="./assets/images/dia-11.gif" width="50%"> 
 
+
+## Dia 12
+
+Día 12: La gente no recuerda que regalo corresponde a cada quien, agreguemos un campo para destinatario y mostremoslo.
+
+<img align="center" src="./assets/images/dia-12.png" width="50%"> 

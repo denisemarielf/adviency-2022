@@ -11,6 +11,7 @@ type GiftsReducerAction = {
   id: string
   quantity: number
   img: string
+  addressee: string
 
 } | {
       type: "deleted"
@@ -32,7 +33,8 @@ function giftsReducer(gifts: Gift[], action: GiftsReducerAction) {
           id: action.id,
           name: action.name,
           quantity: action.quantity,
-          img: action.img
+          img: action.img,
+          addressee: action.addressee
         }
       ]
    
@@ -77,7 +79,8 @@ function App() {
       name: newGift.name,
       id: newGift.id,
       quantity: newGift.quantity,
-      img: newGift.img
+      img: newGift.img,
+      addressee: newGift.addressee
     })
     
   }

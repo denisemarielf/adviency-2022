@@ -17,7 +17,8 @@ const INITIAL_STATE = {
     name: "",
     id: "",
     quantity: 1,
-    img: ""
+    img: "",
+    addressee: ""
 }
 
 type FormReducerAction = {
@@ -91,6 +92,9 @@ export default function Form({ onNewGift, closeForm }: FormProps){
                 </label>
                 <label> Link de imagen
                 <input className="form-input" onChange={handleChange} value={inputValue.img} type="text" name="img" placeholder="URL de imagen" />
+                </label>
+                <label> Destinatario
+                <input className="form-input" onChange={handleChange} value={inputValue.addressee} type="text" name="addressee" placeholder="Destinatario" />
                 </label>
                 <label> Cantidad
                 <input className="form-input-quantity" onChange={handleChange} value={inputValue.quantity} type="number" name="quantity" ></input>
