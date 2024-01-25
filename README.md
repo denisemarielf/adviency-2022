@@ -9,7 +9,7 @@ Para calentar motores vamos a mantener las cosas simples, mostremos una lista de
 !["Imagen dia 1"](./assets/images/dia-1.png)
 
 ## Dia 2
-
+ 
 Día 2: Nuestra app se ve muy poco navideña, demosle unos colores más lindos, rojo, verde, amarillo! Podemos ponernos creativos con lo que queramos!
 
 !["Imagen dia 2"](./assets/images/dia-2.png)
